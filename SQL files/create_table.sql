@@ -57,7 +57,6 @@ CREATE TABLE `Profession` (
   PRIMARY KEY (`prefessionID`)
 );
 
-
 CREATE TABLE `Title_Crew` (
   `crewID` VARCHAR(255),
   `category` VARCHAR(255),
@@ -68,6 +67,16 @@ CREATE TABLE `Title_Crew` (
    FOREIGN KEY (`nconst`) REFERENCES `Person_basics`(`nconst`)
 );
 
+CREATE TABLE `LocalTitle` (
+  `localTitleID` VARCHAR(255),
+  `title` VARCHAR(255),
+  `region` VARCHAR(255),
+  `language` VARCHAR(255),
+  `attributes` VARCHAR(255),
+  `isOriginalTitle` BOOL,
+  PRIMARY KEY (`localTitleID`),
+  FOREIGN KEY (`localTitleID`) REFERENCES `Title`(`titleID`)
+);
 
 CREATE TABLE `Title_type` (
   `localTitleID` VARCHAR(255),
@@ -77,7 +86,6 @@ CREATE TABLE `Title_type` (
   FOREIGN KEY (`typeID`) REFERENCES `Type`(`typeID`)
 );
 
-
 CREATE TABLE `Rating` (
   `titleID` VARCHAR(255),
   `averageRating` INT,
@@ -85,7 +93,6 @@ CREATE TABLE `Rating` (
   PRIMARY KEY (`titleID`),
   FOREIGN KEY (`titleID`) REFERENCES `Title`(`titleID`)
 );
-
 
 CREATE TABLE `KnownForTitle` (
   `titleID` VARCHAR(255),
@@ -100,17 +107,6 @@ CREATE TABLE `Person_profession` (
   `nconst` VARCHAR(255),
   PRIMARY KEY (`prefessionID`, `nconst`),
   FOREIGN KEY (`prefessionID`) REFERENCES `Profession`(`prefessionID`)
-);
-
-CREATE TABLE `LocalTitle` (
-  `localTitleID` VARCHAR(255),
-  `title` VARCHAR(255),
-  `region` VARCHAR(255),
-  `language` VARCHAR(255),
-  `attributes` VARCHAR(255),
-  `isOriginalTitle` BOOL,
-  PRIMARY KEY (`localTitleID`),
-  FOREIGN KEY (`localTitleID`) REFERENCES `Title`(`titleID`)
 );
 
 CREATE TABLE `Title_genre` (
