@@ -98,7 +98,8 @@ CREATE TABLE `KnownForTitle` (
 CREATE TABLE `Person_profession` (
   `prefessionID` VARCHAR(255),
   `nconst` VARCHAR(255),
-  KEY `PK/FK` (`prefessionID`, `nconst`)
+  PRIMARY KEY (`prefessionID`, `nconst`),
+  FOREIGN KEY (`prefessionID`) REFERENCES `Profession`(`prefessionID`)
 );
 
 CREATE TABLE `LocalTitle` (
@@ -108,13 +109,16 @@ CREATE TABLE `LocalTitle` (
   `language` VARCHAR(255),
   `attributes` VARCHAR(255),
   `isOriginalTitle` BOOL,
-  KEY `PK/FK` (`localTitleID`)
+  PRIMARY KEY (`localTitleID`),
+  FOREIGN KEY (`localTitleID`) REFERENCES `Title`(`titleID`)
 );
 
 CREATE TABLE `Title_genre` (
   `genreID` VARCHAR(255),
   `titleID` VARCHAR(255),
-  KEY `PK/FK` (`genreID`, `titleID`)
+  PRIMARY KEY (`genreID`, `titleID`),
+  FOREIGN KEY (`genreID`) REFERENCES `Genre`(genreID),
+  FOREIGN KEY (`titleID`) REFERENCES `Title`(titleID)
 );
 
 CREATE TABLE `Type` (
