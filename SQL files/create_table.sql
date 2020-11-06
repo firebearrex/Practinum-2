@@ -58,7 +58,6 @@ CREATE TABLE `Profession` (
 );
 
 
-DROP TABLE IF EXISTS `Title_Crew`;
 CREATE TABLE `Title_Crew` (
   `crewID` VARCHAR(255),
   `category` VARCHAR(255),
@@ -70,7 +69,6 @@ CREATE TABLE `Title_Crew` (
 );
 
 
-DROP TABLE IF EXISTS `Title_type`;
 CREATE TABLE `Title_type` (
   `localTitleID` VARCHAR(255),
   `typeID` VARCHAR(255),
@@ -80,7 +78,6 @@ CREATE TABLE `Title_type` (
 );
 
 
-DROP TABLE IF EXISTS `Rating`;
 CREATE TABLE `Rating` (
   `titleID` VARCHAR(255),
   `averageRating` INT,
@@ -90,7 +87,6 @@ CREATE TABLE `Rating` (
 );
 
 
-DROP TABLE IF EXISTS `KnownForTitle`;
 CREATE TABLE `KnownForTitle` (
   `titleID` VARCHAR(255),
   `nconst` VARCHAR(255),
