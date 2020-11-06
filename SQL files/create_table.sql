@@ -40,6 +40,7 @@ CREATE TABLE `Episode` (
   PRIMARY KEY (`episodeID`)
 );
 
+######
 CREATE TABLE `Person_basics` (
   `nconst` VARCHAR(255),
   `primaryName` VARCHAR(255),
@@ -56,6 +57,7 @@ CREATE TABLE `Profession` (
   PRIMARY KEY (`prefessionID`)
 );
 
+##########
 CREATE TABLE `Title_Crew` (
   `crewID` VARCHAR(255),
   `category` VARCHAR(255),
