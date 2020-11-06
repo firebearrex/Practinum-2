@@ -1,18 +1,4 @@
 DROP TABLE IF EXISTS `Title`;
-DROP TABLE IF EXISTS `Genre`;
-DROP TABLE IF EXISTS `Episode` ;
-DROP TABLE IF EXISTS `Person_basics`;
-DROP TABLE IF EXISTS `Profession`;
-DROP TABLE IF EXISTS `Title_Crew`;
-DROP TABLE IF EXISTS `Title_type`;
-DROP TABLE IF EXISTS `Rating`;
-DROP TABLE IF EXISTS `KnownForTitle`;
-DROP TABLE IF EXISTS `Person_profession`;
-DROP TABLE IF EXISTS `LocalTitle`;
-DROP TABLE IF EXISTS `Title_genre`;
-DROP TABLE IF EXISTS `Type`;
-
-
 CREATE TABLE `Title` (
   `titleID` VARCHAR(255),
   `crewID` VARCHAR(255),
@@ -26,12 +12,14 @@ CREATE TABLE `Title` (
   PRIMARY KEY (`titleID`)
 );
 
+DROP TABLE IF EXISTS `Genre`;
 CREATE TABLE `Genre` (
   `genreID` VARCHAR(255),
   `genre_name` VARCHAR(255),
   PRIMARY KEY (`genreID`)
 );
 
+DROP TABLE IF EXISTS `Episode` ;
 CREATE TABLE `Episode` (
   `episodeID` VARCHAR(255),
   `parentTconst` VARCHAR(255),
@@ -40,6 +28,7 @@ CREATE TABLE `Episode` (
   PRIMARY KEY (`episodeID`)
 );
 
+DROP TABLE IF EXISTS `Person_basics`;
 CREATE TABLE `Person_basics` (
   `nconst` VARCHAR(255),
   `primaryName` VARCHAR(255),
@@ -50,27 +39,32 @@ CREATE TABLE `Person_basics` (
   PRIMARY KEY (`nconst`)
 );
 
+DROP TABLE IF EXISTS `Profession`;
 CREATE TABLE `Profession` (
   `prefessionID` VARCHAR(255),
   `prefessionName` VARCHAR(255),
   PRIMARY KEY (`prefessionID`)
 );
 
+DROP TABLE IF EXISTS `Title_Crew`;
 CREATE TABLE `Title_Crew` (
   `crewID` VARCHAR(255),
   `category` VARCHAR(255),
   `nconst` VARCHAR(255),
   `job` VARCHAR(255),
   `characters` VARCHAR(255),
-  PRIMARY KEY (`crewID`)
+   PRIMARY KEY (`crewID`),
+   FOREIGN KEY ("nconst") REFERENCES `Person_basics`("nconst")
 );
 
+DROP TABLE IF EXISTS `Title_type`;
 CREATE TABLE `Title_type` (
   `titleID` VARCHAR(255),
   `typeID` VARCHAR(255),
   KEY `PK/FK` (`titleID`, `typeID`)
 );
 
+DROP TABLE IF EXISTS `Rating`;
 CREATE TABLE `Rating` (
   `titleID` VARCHAR(255),
   `averageRating` INT,
@@ -78,18 +72,21 @@ CREATE TABLE `Rating` (
   KEY `PK/FK` (`titleID`)
 );
 
+DROP TABLE IF EXISTS `KnownForTitle`;
 CREATE TABLE `KnownForTitle` (
   `titleID` VARCHAR(255),
   `nconst` VARCHAR(255),
   KEY `PK/FK` (`titleID`, `nconst`)
 );
 
+DROP TABLE IF EXISTS `Person_profession`;
 CREATE TABLE `Person_profession` (
   `prefessionID` VARCHAR(255),
   `nconst` VARCHAR(255),
   KEY `PK/FK` (`prefessionID`, `nconst`)
 );
 
+DROP TABLE IF EXISTS `LocalTitle`;
 CREATE TABLE `LocalTitle` (
   `localTitleID` VARCHAR(255),
   `title` VARCHAR(255),
@@ -100,15 +97,16 @@ CREATE TABLE `LocalTitle` (
   KEY `PK/FK` (`localTitleID`)
 );
 
+DROP TABLE IF EXISTS `Title_genre`;
 CREATE TABLE `Title_genre` (
   `genreID` VARCHAR(255),
   `titleID` VARCHAR(255),
   KEY `PK/FK` (`genreID`, `titleID`)
 );
 
+DROP TABLE IF EXISTS `Type`;
 CREATE TABLE `Type` (
   `typeID` VARCHAR(255),
   `content` VARCHAR(255),
   PRIMARY KEY (`typeID`)
 );
-
