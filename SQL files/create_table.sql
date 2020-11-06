@@ -1,17 +1,16 @@
+DROP TABLE IF EXISTS `Title_type`;
+DROP TABLE IF EXISTS `Type`;
+DROP TABLE IF EXISTS `LocalTitle`;
+DROP TABLE IF EXISTS `Rating`;
+DROP TABLE IF EXISTS `KnownForTitle`;
+DROP TABLE IF EXISTS `Title_genre`;
 DROP TABLE IF EXISTS `Title`;
 DROP TABLE IF EXISTS `Genre`;
 DROP TABLE IF EXISTS `Episode`;
-DROP TABLE IF EXISTS `Person_basics`;
-DROP TABLE IF EXISTS `Profession`;
 DROP TABLE IF EXISTS `Title_Crew`;
-DROP TABLE IF EXISTS `Title_type`;
-DROP TABLE IF EXISTS `Rating`;
-DROP TABLE IF EXISTS `KnownForTitle`;
+DROP TABLE IF EXISTS `Person_basics`;
 DROP TABLE IF EXISTS `Person_profession`;
-DROP TABLE IF EXISTS `LocalTitle`;
-DROP TABLE IF EXISTS `Title_genre`;
-DROP TABLE IF EXISTS `Type`;
-
+DROP TABLE IF EXISTS `Profession`;
 
 CREATE TABLE `Title` (
   `titleID` VARCHAR(255),
@@ -78,6 +77,12 @@ CREATE TABLE `LocalTitle` (
   FOREIGN KEY (`localTitleID`) REFERENCES `Title`(`titleID`)
 );
 
+CREATE TABLE `Type` (
+  `typeID` VARCHAR(255),
+  `content` VARCHAR(255),
+  PRIMARY KEY (`typeID`)
+);
+
 CREATE TABLE `Title_type` (
   `localTitleID` VARCHAR(255),
   `typeID` VARCHAR(255),
@@ -117,8 +122,3 @@ CREATE TABLE `Title_genre` (
   FOREIGN KEY (`titleID`) REFERENCES `Title`(titleID)
 );
 
-CREATE TABLE `Type` (
-  `typeID` VARCHAR(255),
-  `content` VARCHAR(255),
-  PRIMARY KEY (`typeID`)
-);
