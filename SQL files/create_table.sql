@@ -28,6 +28,7 @@ CREATE TABLE `Episode` (
   PRIMARY KEY (`episodeID`)
 );
 
+######
 DROP TABLE IF EXISTS `Person_basics`;
 CREATE TABLE `Person_basics` (
   `nconst` VARCHAR(255),
@@ -46,6 +47,7 @@ CREATE TABLE `Profession` (
   PRIMARY KEY (`prefessionID`)
 );
 
+##############
 DROP TABLE IF EXISTS `Title_Crew`;
 CREATE TABLE `Title_Crew` (
   `crewID` VARCHAR(255),
@@ -53,7 +55,8 @@ CREATE TABLE `Title_Crew` (
   `nconst` VARCHAR(255),
   `job` VARCHAR(255),
   `characters` VARCHAR(255),
-  PRIMARY KEY (`crewID`)
+   PRIMARY KEY (`crewID`),
+   FOREIGN KEY ("nconst") REFERENCES `Person_basics`("nconst")
 );
 
 DROP TABLE IF EXISTS `Title_type`;
