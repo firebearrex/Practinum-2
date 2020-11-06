@@ -57,7 +57,8 @@ CREATE TABLE `Profession` (
   PRIMARY KEY (`prefessionID`)
 );
 
-##########
+
+DROP TABLE IF EXISTS `Title_Crew`;
 CREATE TABLE `Title_Crew` (
   `crewID` VARCHAR(255),
   `category` VARCHAR(255),
@@ -65,26 +66,37 @@ CREATE TABLE `Title_Crew` (
   `job` VARCHAR(255),
   `characters` VARCHAR(255),
    PRIMARY KEY (`crewID`),
-   FOREIGN KEY ("nconst") REFERENCES `Person_basics`("nconst")
+   FOREIGN KEY (`nconst`) REFERENCES `Person_basics`(`nconst`)
 );
 
+
+DROP TABLE IF EXISTS `Title_type`;
 CREATE TABLE `Title_type` (
-  `titleID` VARCHAR(255),
+  `localTitleID` VARCHAR(255),
   `typeID` VARCHAR(255),
-  KEY `PK/FK` (`titleID`, `typeID`)
+  PRIMARY KEY (`localTitleID`, `typeID`),
+  FOREIGN KEY (`localTitleID`) REFERENCES `LocalTitle`(`localTitleID`),
+  FOREIGN KEY (`typeID`) REFERENCES `Type`(`typeID`)
 );
 
+
+DROP TABLE IF EXISTS `Rating`;
 CREATE TABLE `Rating` (
   `titleID` VARCHAR(255),
   `averageRating` INT,
   `numVotes` INT,
-  KEY `PK/FK` (`titleID`)
+  PRIMARY KEY (`titleID`),
+  FOREIGN KEY (`titleID`) REFERENCES `Title`(`titleID`)
 );
 
+
+DROP TABLE IF EXISTS `KnownForTitle`;
 CREATE TABLE `KnownForTitle` (
   `titleID` VARCHAR(255),
   `nconst` VARCHAR(255),
-  KEY `PK/FK` (`titleID`, `nconst`)
+  PRIMARY KEY (`titleID`, `nconst`),
+  FOREIGN KEY (`titleID`) REFERENCES `Title`(`titleID`),
+  FOREIGN KEY (`nconst`) REFERENCES `Person_basics`(`nconst`)
 );
 
 CREATE TABLE `Person_profession` (
