@@ -69,13 +69,14 @@ CREATE TABLE `Title_Crew` (
 
 CREATE TABLE `LocalTitle` (
   `localTitleID` VARCHAR(255),
+  `titleID` VARCHAR(255),
   `title` VARCHAR(255),
   `region` VARCHAR(255),
   `language` VARCHAR(255),
   `attributes` VARCHAR(255),
   `isOriginalTitle` BOOL,
   PRIMARY KEY (`localTitleID`),
-  FOREIGN KEY (`localTitleID`) REFERENCES `Title`(`titleID`)
+  FOREIGN KEY (`titleID`) REFERENCES `Title`(`titleID`)
 );
 
 CREATE TABLE `Type` (
