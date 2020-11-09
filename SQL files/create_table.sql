@@ -33,10 +33,11 @@ CREATE TABLE `Genre` (
 
 CREATE TABLE `Episode` (
   `episodeID` VARCHAR(255),
-  `parentTconst` VARCHAR(255),
+  `titleID` VARCHAR(255),
   `seasonNumber` INT,
   `episodeNumber` INT,
-  PRIMARY KEY (`episodeID`)
+  PRIMARY KEY (`episodeID`),
+  FOREIGN KEY (`titleID`) REFERENCES `Title`(`titleID`)
 );
 
 ######
