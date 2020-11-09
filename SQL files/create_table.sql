@@ -15,7 +15,7 @@ DROP TABLE IF EXISTS `Profession`;
 CREATE TABLE `Title` (
   `titleID` VARCHAR(255),
   `crewID` VARCHAR(255),
-  `titleType` TEXT,
+  `titleType` ENUM(`movie`, `short`, `tvEpisode`, `tvMiniSeries`, `tvMovie`, `tvShort`, `tvSpecial`, `video`, `videoGame`),
   `primaryTitle` TEXT,
   `originalTitle` TEXT,
   `isAdult` Boolean,
