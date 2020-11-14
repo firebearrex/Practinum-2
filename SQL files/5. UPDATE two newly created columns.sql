@@ -1,9 +1,11 @@
 UPDATE `Person_basics`
 SET `age` = IF(`deathYear` IS NOT NULL,
-				YEAR(CURDATE()) - `birthYear`,
-				`deathYear` - `birthYear`);
+				`deathYear` - `birthYear`,
+				YEAR(CURDATE()) - `birthYear`);
 
-UPDATE `Person_basics`
-SET `numberOfTitlesParticipated` = (SELECT COUNT(`nconst`)
-									FROM `Title_Crew`
-									GROUP BY `titleID`);
+UPDATE `Person_basics` AS P
+SET `numberOfTitlesParticipated` = (SELECT COUNT(`titleID`)
+									FROM `Title_Crew` AS T
+                                    WHERE T.nconst = P.nconst
+									GROUP BY T.nconst
+                                    );
