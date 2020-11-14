@@ -19,8 +19,8 @@ CREATE TABLE `Title` (
   `primaryTitle` TEXT,
   `originalTitle` TEXT,
   `isAdult` Boolean,
-  `startYear` YEAR,
-  `endYear` YEAR,
+  `startYear` INT,
+  `endYear` INT,
   `runtimeMinutes` INT,
   PRIMARY KEY (`titleID`)
 );
@@ -44,8 +44,8 @@ CREATE TABLE `Episode` (
 CREATE TABLE `Person_basics` (
   `nconst` VARCHAR(255),
   `primaryName` VARCHAR(255),
-  `birthYear` YEAR,
-  `deathYear` YEAR,
+  `birthYear` INT,
+  `deathYear` INT,
   `Age` INT,
   `numberOfTitlesParticipated` INT,
   PRIMARY KEY (`nconst`)
