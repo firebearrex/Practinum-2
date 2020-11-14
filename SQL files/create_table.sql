@@ -20,7 +20,7 @@ CREATE TABLE `Title` (
   `isAdult` Boolean,
   `startYear` YEAR,
   `endYear` YEAR,
-  `runtimeMinutes` TINYTEXT,
+  `runtimeMinutes` INT,
   PRIMARY KEY (`titleID`)
 );
 
