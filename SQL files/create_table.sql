@@ -5,9 +5,9 @@ DROP TABLE IF EXISTS `Rating`;
 DROP TABLE IF EXISTS `KnownForTitle`;
 DROP TABLE IF EXISTS `Title_genre`;
 DROP TABLE IF EXISTS `Episode`;
+DROP TABLE IF EXISTS `Title_Crew`;
 DROP TABLE IF EXISTS `Title`;
 DROP TABLE IF EXISTS `Genre`;
-DROP TABLE IF EXISTS `Title_Crew`;
 DROP TABLE IF EXISTS `Person_basics`;
 DROP TABLE IF EXISTS `Person_profession`;
 DROP TABLE IF EXISTS `Profession`;
@@ -18,8 +18,8 @@ CREATE TABLE `Title` (
   `primaryTitle` TEXT,
   `originalTitle` TEXT,
   `isAdult` Boolean,
-  `startYear` TINYTEXT,
-  `endYear` TINYTEXT,
+  `startYear` YEAR,
+  `endYear` YEAR,
   `runtimeMinutes` TINYTEXT,
   PRIMARY KEY (`titleID`)
 );
