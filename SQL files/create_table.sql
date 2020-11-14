@@ -13,8 +13,7 @@ DROP TABLE IF EXISTS `Person_profession`;
 DROP TABLE IF EXISTS `Profession`;
 
 CREATE TABLE `Title` (
-  `titleID` VARCHAR(255),
-  `crewID` VARCHAR(255),
+  `titleID` INT,
   `titleType` ENUM ('movie', 'short', 'tvEpisode', 'tvMiniSeries', 'tvMovie', 'tvShort', 'tvSpecial', 'video', 'videoGame'),
   `primaryTitle` TEXT,
   `originalTitle` TEXT,
@@ -26,14 +25,14 @@ CREATE TABLE `Title` (
 );
 
 CREATE TABLE `Genre` (
-  `genreID` VARCHAR(255),
+  `genreID` INT,
   `genre_name` VARCHAR(255),
   PRIMARY KEY (`genreID`)
 );
 
 CREATE TABLE `Episode` (
-  `episodeID` VARCHAR(255),
-  `titleID` VARCHAR(255),
+  `episodeID` INT,
+  `titleID` INT,
   `seasonNumber` INT,
   `episodeNumber` INT,
   PRIMARY KEY (`episodeID`),
@@ -52,24 +51,26 @@ CREATE TABLE `Person_basics` (
 );
 
 CREATE TABLE `Profession` (
-  `prefessionID` VARCHAR(255),
+  `prefessionID` INT,
   `prefessionName` VARCHAR(255),
   PRIMARY KEY (`prefessionID`)
 );
 
 CREATE TABLE `Title_Crew` (
-  `crewID` VARCHAR(255),
+  `crewID` INT,
+  `titleID` INT,
   `category` VARCHAR(255),
   `nconst` VARCHAR(255),
   `job` VARCHAR(255),
   `characters` VARCHAR(255),
    PRIMARY KEY (`crewID`),
+   FOREIGN KEY (`titleID`) REFERENCES `Title`(`titleID`),
    FOREIGN KEY (`nconst`) REFERENCES `Person_basics`(`nconst`)
 );
 
 CREATE TABLE `LocalTitle` (
-  `localTitleID` VARCHAR(255),
-  `titleID` VARCHAR(255),
+  `localTitleID` INT,
+  `titleID` INT,
   `title` VARCHAR(255),
   `region` VARCHAR(255),
   `language` VARCHAR(255),
@@ -80,21 +81,21 @@ CREATE TABLE `LocalTitle` (
 );
 
 CREATE TABLE `Type` (
-  `typeID` VARCHAR(255),
+  `typeID` INT,
   `content` VARCHAR(255),
   PRIMARY KEY (`typeID`)
 );
 
 CREATE TABLE `Title_type` (
-  `localTitleID` VARCHAR(255),
-  `typeID` VARCHAR(255),
+  `localTitleID` INT,
+  `typeID` INT,
   PRIMARY KEY (`localTitleID`, `typeID`),
   FOREIGN KEY (`localTitleID`) REFERENCES `LocalTitle`(`localTitleID`),
   FOREIGN KEY (`typeID`) REFERENCES `Type`(`typeID`)
 );
 
 CREATE TABLE `Rating` (
-  `titleID` VARCHAR(255),
+  `titleID` INT,
   `averageRating` INT,
   `numVotes` INT,
   PRIMARY KEY (`titleID`),
@@ -102,7 +103,7 @@ CREATE TABLE `Rating` (
 );
 
 CREATE TABLE `KnownForTitle` (
-  `titleID` VARCHAR(255),
+  `titleID` INT,
   `nconst` VARCHAR(255),
   PRIMARY KEY (`titleID`, `nconst`),
   FOREIGN KEY (`titleID`) REFERENCES `Title`(`titleID`),
@@ -110,15 +111,15 @@ CREATE TABLE `KnownForTitle` (
 );
 
 CREATE TABLE `Person_profession` (
-  `prefessionID` VARCHAR(255),
+  `prefessionID` INT,
   `nconst` VARCHAR(255),
   PRIMARY KEY (`prefessionID`, `nconst`),
   FOREIGN KEY (`prefessionID`) REFERENCES `Profession`(`prefessionID`)
 );
 
 CREATE TABLE `Title_genre` (
-  `genreID` VARCHAR(255),
-  `titleID` VARCHAR(255),
+  `genreID` INT,
+  `titleID` INT,
   PRIMARY KEY (`genreID`, `titleID`),
   FOREIGN KEY (`genreID`) REFERENCES `Genre`(genreID),
   FOREIGN KEY (`titleID`) REFERENCES `Title`(titleID)
