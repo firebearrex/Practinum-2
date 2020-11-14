@@ -4,9 +4,9 @@ DROP TABLE IF EXISTS `LocalTitle`;
 DROP TABLE IF EXISTS `Rating`;
 DROP TABLE IF EXISTS `KnownForTitle`;
 DROP TABLE IF EXISTS `Title_genre`;
+DROP TABLE IF EXISTS `Episode`;
 DROP TABLE IF EXISTS `Title`;
 DROP TABLE IF EXISTS `Genre`;
-DROP TABLE IF EXISTS `Episode`;
 DROP TABLE IF EXISTS `Title_Crew`;
 DROP TABLE IF EXISTS `Person_basics`;
 DROP TABLE IF EXISTS `Person_profession`;
@@ -18,9 +18,9 @@ CREATE TABLE `Title` (
   `primaryTitle` TEXT,
   `originalTitle` TEXT,
   `isAdult` Boolean,
-  `startYear` INT,
-  `endYear` INT,
-  `runtimeMinutes` INT,
+  `startYear` TINYTEXT,
+  `endYear` TINYTEXT,
+  `runtimeMinutes` TINYTEXT,
   PRIMARY KEY (`titleID`)
 );
 
@@ -41,7 +41,7 @@ CREATE TABLE `Episode` (
 
 ######
 CREATE TABLE `Person_basics` (
-  `nconst` VARCHAR(255),
+  `nconst` INT,
   `primaryName` VARCHAR(255),
   `birthYear` INT,
   `deathYear` INT,
@@ -60,7 +60,7 @@ CREATE TABLE `Title_Crew` (
   `crewID` INT,
   `titleID` INT,
   `category` VARCHAR(255),
-  `nconst` VARCHAR(255),
+  `nconst` INT,
   `job` VARCHAR(255),
   `characters` VARCHAR(255),
    PRIMARY KEY (`crewID`),
@@ -104,7 +104,7 @@ CREATE TABLE `Rating` (
 
 CREATE TABLE `KnownForTitle` (
   `titleID` INT,
-  `nconst` VARCHAR(255),
+  `nconst` INT,
   PRIMARY KEY (`titleID`, `nconst`),
   FOREIGN KEY (`titleID`) REFERENCES `Title`(`titleID`),
   FOREIGN KEY (`nconst`) REFERENCES `Person_basics`(`nconst`)
@@ -112,7 +112,7 @@ CREATE TABLE `KnownForTitle` (
 
 CREATE TABLE `Person_profession` (
   `prefessionID` INT,
-  `nconst` VARCHAR(255),
+  `nconst` INT,
   PRIMARY KEY (`prefessionID`, `nconst`),
   FOREIGN KEY (`prefessionID`) REFERENCES `Profession`(`prefessionID`)
 );
