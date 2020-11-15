@@ -5,7 +5,7 @@ SET `age` = IF(`deathYear` IS NOT NULL,
 
 UPDATE `Person_basics` AS P
 SET `numberOfTitlesParticipated` = (SELECT COUNT(`titleID`)
-									FROM `Title_Crew` AS T
+									FROM `Title_CrewMember` AS T
                                     WHERE T.nconst = P.nconst
 									GROUP BY T.nconst
                                     );
