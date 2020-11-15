@@ -28,7 +28,7 @@ df_temp.loc[:, 'genres'] = df_temp['genres'].str.split(",")
 # explode the list-like value in ONE row into multiple rows with one value for each
 df_temp = df_temp.explode('genres').reset_index(drop=True) 
 
-# replace the genre name with genreID
+# replace cell value according to a dictionary (in the following case: replace the genre name with genreID per genres_dict)
 
    # genres_names & genreID
 genres_dict = {"Action": 1,
