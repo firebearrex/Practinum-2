@@ -99,7 +99,7 @@ CREATE TABLE `Title_type` (
 
 CREATE TABLE `Rating` (
   `titleID` INT,
-  `averageRating` INT,
+  `averageRating` FLOAT,
   `numVotes` INT,
   PRIMARY KEY (`titleID`),
   FOREIGN KEY (`titleID`) REFERENCES `Title`(`titleID`)
