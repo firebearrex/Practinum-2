@@ -56,14 +56,14 @@ CREATE TABLE `Profession` (
   PRIMARY KEY (`prefessionID`)
 );
 
-CREATE TABLE `Title_Crew` (
-  `crewID` INT,
+CREATE TABLE `Title_CrewMember` (
+  `crewMemberID` INT,
   `titleID` INT,
   `category` VARCHAR(255),
   `nconst` INT,
   `job` VARCHAR(255),
   `characters` VARCHAR(255),
-   PRIMARY KEY (`crewID`),
+   PRIMARY KEY (`crewMemberID`),
    FOREIGN KEY (`titleID`) REFERENCES `Title`(`titleID`),
    FOREIGN KEY (`nconst`) REFERENCES `Person_basics`(`nconst`)
 );
