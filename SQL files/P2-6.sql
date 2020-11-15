@@ -2,13 +2,12 @@ DROP TRIGGER IF EXISTS ageUpdater;
 
 DELIMITER //
 CREATE TRIGGER ageUpdater
-BEFORE INSERT ON Author
+BEFORE INSERT ON `Person_basics`
 FOR EACH ROW
 BEGIN
-IF 
-    NEW.certifications NOT IN ("PMP", "CBAP", "CSM", "CSTE", "CAP")
-THEN
-	SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'You have entered an invalid.';
-END IF;
+	# UPDATE `Person_basics`
+	SET NEW.`age` = IF(NEW.`deathYear` IS NOT NULL,
+					NEW.`deathYear` - NEW.`birthYear`,
+					YEAR(CURDATE()) - NEW.`birthYear`);
 END //
 DELIMITER ;
