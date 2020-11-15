@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS `Rating`;
 DROP TABLE IF EXISTS `KnownForTitle`;
 DROP TABLE IF EXISTS `Title_genre`;
 DROP TABLE IF EXISTS `Episode`;
-DROP TABLE IF EXISTS `Title_Crew`;
+DROP TABLE IF EXISTS `Title_CrewMember`;
 DROP TABLE IF EXISTS `Title`;
 DROP TABLE IF EXISTS `Genre`;
 DROP TABLE IF EXISTS `Person_basics`;
@@ -56,14 +56,14 @@ CREATE TABLE `Profession` (
   PRIMARY KEY (`prefessionID`)
 );
 
-CREATE TABLE `Title_Crew` (
-  `crewID` INT,
+CREATE TABLE `Title_CrewMember` (
+  `crewMemberID` INT,
   `titleID` INT,
   `category` VARCHAR(255),
   `nconst` INT,
   `job` VARCHAR(255),
   `characters` VARCHAR(255),
-   PRIMARY KEY (`crewID`),
+   PRIMARY KEY (`crewMemberID`),
    FOREIGN KEY (`titleID`) REFERENCES `Title`(`titleID`),
    FOREIGN KEY (`nconst`) REFERENCES `Person_basics`(`nconst`)
 );
