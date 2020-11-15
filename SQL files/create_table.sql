@@ -60,7 +60,7 @@ CREATE TABLE `Profession` (
 );
 
 CREATE TABLE `Title_CrewMember` (
-  `crewMemberID` INT,
+  `crewMemberID` VARCHAR(255),
   `titleID` INT,
   `category` VARCHAR(255),
   `nconst` INT,
@@ -72,7 +72,7 @@ CREATE TABLE `Title_CrewMember` (
 );
 
 CREATE TABLE `LocalTitle` (
-  `localTitleID` INT,
+  `localTitleID` VARCHAR(255),
   `titleID` INT,
   `title` VARCHAR(255),
   `region` VARCHAR(255),
