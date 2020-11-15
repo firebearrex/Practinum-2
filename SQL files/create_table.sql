@@ -51,9 +51,9 @@ CREATE TABLE `Person_basics` (
 );
 
 CREATE TABLE `Profession` (
-  `prefessionID` INT,
-  `prefessionName` VARCHAR(255),
-  PRIMARY KEY (`prefessionID`)
+  `professionID` INT,
+  `professionName` VARCHAR(255),
+  PRIMARY KEY (`professionID`)
 );
 
 CREATE TABLE `Title_CrewMember` (
@@ -111,10 +111,10 @@ CREATE TABLE `KnownForTitle` (
 );
 
 CREATE TABLE `Person_profession` (
-  `prefessionID` INT,
+  `professionID` INT,
   `nconst` INT,
-  PRIMARY KEY (`prefessionID`, `nconst`),
-  FOREIGN KEY (`prefessionID`) REFERENCES `Profession`(`prefessionID`)
+  PRIMARY KEY (`professionID`, `nconst`),
+  FOREIGN KEY (`professionID`) REFERENCES `Profession`(`professionID`)
 );
 
 CREATE TABLE `Title_genre` (
