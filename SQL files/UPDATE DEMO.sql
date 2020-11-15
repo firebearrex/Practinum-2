@@ -30,10 +30,13 @@ INSERT INTO `Person_basics` (`nconst`,`primaryName`,`birthYear`, `deathYear`) VA
   (0000010,"James Cagney",1899,1982),
   (0000084,"Li Gong",1965,NULL);
   
-  INSERT INTO `Title_Crew` (`crewID`,`titleID`,`category`,`nconst`,`job`,`characters`) VALUES
+INSERT INTO `Title_Crew` (`crewID`,`titleID`,`category`,`nconst`,`job`,`characters`) VALUES
 	(1,0038787,NULL,0000006,NULL,NULL),
 	(2,0040897,NULL,0000007,NULL,NULL),
 	(3,0068646,NULL,0000008,NULL,NULL),
 	(4,0059749,NULL,0000009,NULL,NULL),
 	(5,0042041,NULL,0000010,NULL,NULL),
 	(6,0101640,NULL,0000084,NULL,NULL);
+    
+INSERT INTO `Title_Crew` (`crewID`,`titleID`,`category`,`nconst`,`job`,`characters`) VALUES
+	(7,0430357,NULL,0000084,NULL,NULL);
