@@ -1,0 +1,14 @@
+DROP TRIGGER IF EXISTS ageUpdater;
+
+DELIMITER //
+CREATE TRIGGER ageUpdater
+BEFORE INSERT ON Author
+FOR EACH ROW
+BEGIN
+IF 
+    NEW.certifications NOT IN ("PMP", "CBAP", "CSM", "CSTE", "CAP")
+THEN
+	SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'You have entered an invalid.';
+END IF;
+END //
+DELIMITER ;
