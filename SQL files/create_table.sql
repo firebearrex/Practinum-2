@@ -14,13 +14,13 @@ DROP TABLE IF EXISTS `Profession`;
 
 CREATE TABLE `Title` (
   `titleID` INT,
-  `titleType` ENUM ('movie', 'short', 'tvEpisode', 'tvMiniSeries', 'tvMovie', 'tvShort', 'tvSpecial', 'video', 'videoGame'),
+  `titleType` ENUM ('movie', 'short', 'tvEpisode', 'tvMiniSeries', 'tvMovie', 'tvShort', 'tvSpecial', 'video', 'videoGame', 'tvSeries'),
   `primaryTitle` TEXT,
   `originalTitle` TEXT,
   `isAdult` Boolean,
-  `startYear` YEAR,
-  `endYear` YEAR,
-  `runtimeMinutes` INT,
+  `startYear` varchar(255),
+  `endYear` varchar(255),
+  `runtimeMinutes` varchar(255),
   PRIMARY KEY (`titleID`)
 );
 
