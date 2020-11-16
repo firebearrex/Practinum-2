@@ -9,3 +9,8 @@ SET `numberOfTitlesParticipated` = (SELECT COUNT(`titleID`)
                                     WHERE T.nconst = P.nconst
 									GROUP BY T.nconst
                                     );
+                                    
+UPDATE Person_basics
+SET isDead = IF(deathYear IS NOT NULL,
+				TRUE,
+                FALSE);

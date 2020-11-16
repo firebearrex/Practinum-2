@@ -28,3 +28,18 @@ INSERT INTO `Title_CrewMember` (`crewID`,`titleID`,`category`,`nconst`,`job`,`ch
 	(10,0027977,"actor",0000122,NULL,"A Factory Worker"),
 	(11,0114746,"actress",0000093,NULL,"Jeffrey Goines"),
 	(12,1210166,"producer",0000093,NULL,"James Cole");
+  
+INSERT INTO `KnownForTitle` (`titleID`,`nconst`) VALUES
+	(0038787,0000006),
+	(0038109,0000006),
+	(0040897,0000007),
+	(0068646,0000008),
+	(0059749,0000009),
+	(0042041,0000010),
+	(0101640,0000084),
+	(0430357,0000084),
+	(0356910,0000093),
+	(0114746,0000093),
+	(1210166,0000093),
+	(0097123,0000095),
+	(0027977,0000122);

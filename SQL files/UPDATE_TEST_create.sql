@@ -26,3 +26,10 @@ CREATE TABLE `Title_CrewMember` (
    FOREIGN KEY (`nconst`) REFERENCES `Person_basics`(`nconst`)
 );
 
+CREATE TABLE `KnownForTitle` (
+  `titleID` INT,
+  `nconst` INT,
+  PRIMARY KEY (`titleID`, `nconst`),
+  # FOREIGN KEY (`titleID`) REFERENCES `Title`(`titleID`),
+  FOREIGN KEY (`nconst`) REFERENCES `Person_basics`(`nconst`)
+);
