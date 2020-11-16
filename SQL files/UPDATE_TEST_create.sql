@@ -9,6 +9,7 @@ CREATE TABLE `Person_basics` (
   `primaryName` VARCHAR(255),
   `birthYear` INT,
   `deathYear` INT,
+  `isDead` BOOLEAN,
   `age` INT,
   `numberOfTitlesParticipated` INT,
   PRIMARY KEY (`nconst`)
