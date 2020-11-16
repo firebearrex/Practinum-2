@@ -65,7 +65,6 @@ CREATE TABLE `Title_CrewMember` (
   `titleID` INT,
   `category` VARCHAR(255),
   `nconst` INT,
-  `job` VARCHAR(255),
   `characters` VARCHAR(255),
    PRIMARY KEY (`crewMemberID`),
    FOREIGN KEY (`titleID`) REFERENCES `Title`(`titleID`),
@@ -75,7 +74,7 @@ CREATE TABLE `Title_CrewMember` (
 CREATE TABLE `LocalTitle` (
   `localTitleID` VARCHAR(255),
   `titleID` INT,
-  `title` VARCHAR(255),
+  `title` VARCHAR(1024),
   `region` VARCHAR(255),
   `language` VARCHAR(255),
   `attributes` VARCHAR(255),
