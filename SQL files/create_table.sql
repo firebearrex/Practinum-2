@@ -90,7 +90,7 @@ CREATE TABLE `Type` (
 );
 
 CREATE TABLE `Title_type` (
-  `localTitleID` INT,
+  `localTitleID` VARCHAR(255),
   `typeID` INT,
   PRIMARY KEY (`localTitleID`, `typeID`),
   FOREIGN KEY (`localTitleID`) REFERENCES `LocalTitle`(`localTitleID`),
